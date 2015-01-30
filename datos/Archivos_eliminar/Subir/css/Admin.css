@@ -1,0 +1,44 @@
+.values{
+    width:70px;
+}
+.scFormPage {
+	display : inline-flex;
+    background-color: #D5E1E8;
+    opacity: 1;
+    color: #000;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    margin: 20px 0px;
+    text-decoration: none;
+}
+.scFormObjectOddMult {
+    background-color: #FFF;
+    opacity: 1;
+    border-color: #CCC;
+    border-style: solid;
+    border-width: 1px;
+    color: #333;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    padding: 2px;
+    text-decoration: none;
+}
+.scFormLabelOddMult {
+    text-align: left;
+}
+.	 {
+    background-color: #F5F5F5;
+    opacity: 1;
+    border-color: #F5F5F5;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+}
+.scFormBorder {
+    background-color: #F5F5F5;
+    opacity: 1;
+    border-color: #F5F5F5;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+}
