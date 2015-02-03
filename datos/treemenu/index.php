@@ -1,4 +1,5 @@
 <?php
+include_once '../sec/secadmin.php';
 include_once('treemenu_session.php');
 session_start();
 $tmp_useragent                           = $_SERVER['HTTP_USER_AGENT'];
