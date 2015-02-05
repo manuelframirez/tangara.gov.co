@@ -47,7 +47,7 @@
                             <li><a href="acerca.html">acerca de t&aacute;ngara&nbsp;</a></li>
                             <li class="active"><a href="estadisticas.php">estad&iacute;sticas&nbsp;</a></li>
                             <li><a href="informes.html">informes&nbsp;</a></li>
-                            <li><a id="login" href="login.html">funcionarios&nbsp;</a></li>
+                            <li><a id="login" href="login.php">funcionarios&nbsp;</a></li>
                         </ul>
                     </nav>
                     <!--nav-->

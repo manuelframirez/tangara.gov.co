@@ -21,7 +21,7 @@ function ruta(url)
 }
 function alerta()
 {
-    $('#Error').html('<p>El nombre de usuario o contraseña no coinciden</p>');
+    $('#Error').html('<p style="color: red;">El nombre de usuario o contraseña no coinciden</p>');
 }
 $(document).ready(function ()
 {

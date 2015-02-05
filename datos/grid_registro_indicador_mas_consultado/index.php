@@ -1,4 +1,6 @@
 <?php
+include_once '../sec/secadmin.php';
+
    include_once('grid_registro_indicador_mas_consultado_session.php');
    @session_start() ;
    $_SESSION['scriptcase']['grid_registro_indicador_mas_consultado']['glo_nm_perfil']          = "conn_mysql";

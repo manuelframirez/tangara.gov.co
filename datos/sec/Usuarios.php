@@ -2,6 +2,7 @@
 include_once 'usuario.php';
 class Usuarios 
 {
+    private $ds = DIRECTORY_SEPARATOR;
     public function CambiarPass($id_usuario,$Pass)
     {
         $user= new usuario();
@@ -16,11 +17,10 @@ class Usuarios
         { 
             session_start();
         }
-        $rol=$Ver->VerUsuario($_SESSION['U_id']);
-        switch ($rol['Rol'])
+        switch ($_SESSION['U_rol'])
         {
-            case 'Administrador':$url='./datos/treemenu';break;
-            case 'SuperAdmin':$url='./datos/treemenu';break;
+            case 'Administrador':$url='.'.$this->ds.'datos'.$this->ds.'treemenu';break;
+            case 'SuperAdmin':$url='.'.$this->ds.'datos'.$this->ds.'treemenu';break;
             default :$url=FALSE;break;
         }
         return $url;
@@ -39,12 +39,11 @@ class Usuarios
         { 
             session_start();
         }
-        var_dump($Res);
         $_SESSION['U_id']=$Res['id_usuario'];
         $_SESSION['U_rol']=$Res['Rol'];
         
     }
-    private function redireccionar($url='../login/index.php?error=true')
+    private function redireccionar($url='../../login.php')
     {
         header('Location: '.$url);
     }

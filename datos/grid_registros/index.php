@@ -1,4 +1,5 @@
 <?php
+include_once '../sec/secadmin.php';
    include_once('grid_registros_session.php');
    @session_start() ;
    $_SESSION['scriptcase']['grid_registros']['glo_nm_perfil']          = "conn_mysql";

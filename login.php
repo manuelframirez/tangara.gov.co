@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include_once './datos/sec/CloseSession.php';
+?>
 <html lang="es">
     <head>
         <meta charset="utf-8"/>
@@ -45,7 +48,7 @@
                     <header>
                         <figure><a href="index.html"><img src="images/login-tangara.jpg" title="www.tangara.com"></a></figure>
                     </header>
-                    <form id="login_form" method="post" action="./datos/Login/index.php">				
+                    <form id="login_form" method="post" action="#">				
                         <label id="username">Usuario</label>			
                         <input id="usuario" type="text" tabindex="1" name="var_user" placeholder="Usuario">
                         <label>Contrase&ntilde;a</label>			

@@ -1,5 +1,6 @@
 <?php
 //
+   include_once '../sec/secadmin.php';
    include_once('form_tipo_categoria_session.php');
    @session_start() ;
    $_SESSION['scriptcase']['form_tipo_categoria']['glo_nm_perfil']          = "conn_mysql";

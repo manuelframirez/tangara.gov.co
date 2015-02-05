@@ -1,5 +1,6 @@
 <?php
 //
+   include_once '../sec/secadmin.php';
    include_once('form_variables_2_2_session.php');
    @session_start() ;
    $_SESSION['scriptcase']['form_variables_2_2']['glo_nm_perfil']          = "conn_mysql";
