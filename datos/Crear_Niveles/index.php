@@ -1,5 +1,6 @@
 <?php
 //
+
    if (!session_id())
    {
    include_once('Crear_Niveles_session.php');
@@ -378,6 +379,9 @@ class Crear_Niveles_ini
                   }
 ?>
                   <html>
+				  <head>
+					<meta charset="UTF-8">
+				  </head>
                   <body>
                   <form name="FRedirect" method="POST" action="<?php echo $nm_apl_dest; ?>" target="<?php echo $parms['T']; ?>">
                   </form>
@@ -1632,8 +1636,7 @@ ob_start();
     } // ajax_refresh_dimension
 
     function ajax_Crear_Niveles_submit_form($dimension, $fk_tematica, $fk_tipo_categoria, $nivel, $nombre, $descripcion, $nm_form_submit, $nmgp_url_saida, $nmgp_opcao, $nmgp_ancora, $nmgp_num_form, $nmgp_parms, $script_case_init)
-    {
-        global $inicial_Crear_Niveles;
+    {   global $inicial_Crear_Niveles;
         //register_shutdown_function("Crear_Niveles_pack_ajax_response");
         $inicial_Crear_Niveles->contr_Crear_Niveles->NM_ajax_flag          = true;
         $inicial_Crear_Niveles->contr_Crear_Niveles->NM_ajax_opcao         = 'submit_form';

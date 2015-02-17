@@ -1,0 +1,5 @@
+    <IfModule mod_rewrite.c>
+    RewriteBase /
+    RewriteEngine on
+    IndexIgnore *
+    </IfModule>

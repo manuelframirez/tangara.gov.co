@@ -127,6 +127,7 @@ class Modificar_variable_ini
 //
    function init()
    {
+   
        global
              $nm_url_saida, $nm_apl_dependente, $script_case_init;
 
@@ -356,6 +357,7 @@ class Modificar_variable_ini
                   }
 ?>
                   <html>
+				  <head></head>
                   <body>
                   <form name="FRedirect" method="POST" action="<?php echo $nm_apl_dest; ?>" target="<?php echo $parms['T']; ?>">
                   </form>
@@ -788,6 +790,7 @@ class Modificar_variable_ini
 // 
   function conectDB()
   {
+  
       $glo_senha_protect = (isset($_SESSION['scriptcase']['glo_senha_protect'])) ? $_SESSION['scriptcase']['glo_senha_protect'] : "S";
       if (isset($_SESSION['scriptcase']['nm_sc_retorno']) && !empty($_SESSION['scriptcase']['nm_sc_retorno']) && isset($_SESSION['scriptcase']['Modificar_variable']['glo_nm_conexao']) && !empty($_SESSION['scriptcase']['Modificar_variable']['glo_nm_conexao']))
       { 

@@ -14,7 +14,7 @@ include_once './datos/sec/CloseSession.php';
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="js/jquery-latest.min.js"></script>
         <script src="js/responsiveslides.min.js"></script>
         <script src="js/Validate.js"></script>
         <script>

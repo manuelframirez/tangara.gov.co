@@ -1,5 +1,5 @@
 <?php
-include_once 'usuario.php';
+@include_once 'usuario.php';
 class Usuarios 
 {
     private $ds = DIRECTORY_SEPARATOR;
@@ -19,8 +19,8 @@ class Usuarios
         }
         switch ($_SESSION['U_rol'])
         {
-            case 'Administrador':$url='.'.$this->ds.'datos'.$this->ds.'treemenu';break;
-            case 'SuperAdmin':$url='.'.$this->ds.'datos'.$this->ds.'treemenu';break;
+            case 'Administrador':$url='datos/treemenu';break;
+            case 'SuperAdmin':$url='datos/treemenu';break;
             default :$url=FALSE;break;
         }
         return $url;

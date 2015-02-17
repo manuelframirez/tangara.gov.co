@@ -15,17 +15,17 @@ class conexion
     }
     public function DoSql($sql)
     {
-        $Res = $this->con->Execute($sql);
+		$Res = $this->con->Execute($sql);
         return $Res;
     }
     public function TablaDatos($sql)
     {
         $Res=NULL;
         $datos=$this->DoSql($sql);
-        while (!$datos->EOF) 
+        while (@!$datos->EOF) 
         {
-            $Res[] = $datos->fields;
-            $datos->MoveNext();
+            @$Res[] = $datos->fields;
+            @$datos->MoveNext();
         }
         return $Res;
     }
