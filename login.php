@@ -31,6 +31,7 @@ include_once './datos/sec/CloseSession.php';
 
     </head>
     <body>
+        <div id="log"></div>
         <div id="wrapper">
             <div id="slideshow-wrap" class="wrapper">
 

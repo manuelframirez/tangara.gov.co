@@ -7,7 +7,7 @@ class LectorRSS
     function LectorRSS($url) 
     {
         $this->url;
-        $this->data = (implode('', file($url)));//organiza y envia a data
+        $this->data = (implode('', file($url)));
     }
     private function obtener_items() 
     {

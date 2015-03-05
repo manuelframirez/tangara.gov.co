@@ -583,7 +583,19 @@ $_SESSION['scriptcase']['grid_registro_municipios_mas_consultado']['contr_erro']
 //----- 
    if (in_array(strtolower($this->Ini->nm_tpbanco), $this->Ini->nm_bases_mysql))
    { 
-       $nmgp_select = "SELECT `registro`.`fk_municipio` as registro_fk_municipio, `municipio`.`nombreMunicipio` as municipio_nombremunicipio, COUNT(`municipio`.`nombreMunicipio`) as cantidad from " . $this->Ini->nm_tabela; 
+//       $nmgp_select = "SELECT `registro`.`fk_municipio` as registro_fk_municipio, `municipio`.`nombreMunicipio` as municipio_nombremunicipio, COUNT(`municipio`.`nombreMunicipio`) as cantidad from " . $this->Ini->nm_tabela." ORDER BY `cantidad` DESC"; 
+       $nmgp_select = "SELECT 
+  `registro`.`fk_municipio` AS `registro_fk_municipio`,
+  `municipio`.`nombreMunicipio` AS `municipio_nombremunicipio`,
+  COUNT(`municipio`.`nombreMunicipio`) AS `cantidad`
+FROM
+  `registro`
+  INNER JOIN `municipio` ON (`registro`.`fk_municipio` = `municipio`.`idmunicipio`)
+  GROUP BY
+  `registro`.`fk_municipio`,
+  `municipio`.`nombreMunicipio`
+  ORDER BY
+  `cantidad` DESC;"; 
    } 
    else 
    { 
@@ -601,7 +613,7 @@ $_SESSION['scriptcase']['grid_registro_municipios_mas_consultado']['contr_erro']
            $nmgp_select .= " and (" . $_SESSION['sc_session'][$this->Ini->sc_page]['grid_registro_municipios_mas_consultado']['where_resumo'] . ")"; 
        } 
    } 
-   $nmgp_select .= " group by `municipio`.`nombreMunicipio`"; 
+   $nmgp_select .= ""; 
    $nmgp_order_by = ""; 
    $campos_order_select = "";
    foreach($_SESSION['sc_session'][$this->Ini->sc_page]['grid_registro_municipios_mas_consultado']['ordem_select'] as $campo => $ordem) 

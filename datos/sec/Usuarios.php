@@ -11,8 +11,7 @@ class Usuarios
     }
     public function UrlRol()
     {
-        $url='';
-        $Ver = new usuario();
+        $url='#';
         if(!isset($_SESSION)) 
         { 
             session_start();

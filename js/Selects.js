@@ -117,7 +117,8 @@ function CargarNivel()
                 success: function(datos)
                 {
                     ruta = (datos);
-					CargarMunicipiosDatos(indicador);
+                    console.log(datos);
+                    CargarMunicipiosDatos(indicador);
                 }
             });
 }

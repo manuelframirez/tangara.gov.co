@@ -8,15 +8,33 @@
             <?php
             include_once './../../BaseDatos/conexion.php';
             include_once './codigos/ClassVisual.php';
-            $con = new conexion();
+            $con = App::$base;
             $Visual= new Visual();
             $sql="SELECT `id_indicadores`, `Nombre`  FROM `indicadores` ORDER BY `Nombre`";
-            $Res=$con->TablaDatos($sql);
+            $dat = $con->dosql($sql, array());
+            $Res = NULL;
+            while(!$dat->EOF) 
+            {
+                $temp='';
+                $temp[] = $dat->fields['id_indicadores'];
+                $temp[] = $dat->fields['Nombre'];
+                $Res[]=$temp;
+                $dat->MoveNext();
+            }
             $VerIndicadores= $Visual->Select($Res, 'Id_Indicador', '','','','','scFormObjectOddMult');
             echo $Ver;
             echo '<br/>';
             $sql="SELECT `idmunicipio`, `nombreMunicipio` FROM `municipio` ORDER BY `nombreMunicipio`";
-            $Res=$con->TablaDatos($sql);
+            $dat = $con->dosql($sql, array());
+            $Res = NULL;
+            while(!$dat->EOF) 
+            {
+                $temp='';
+                $temp[] = $dat->fields['idmunicipio'];
+                $temp[] = $dat->fields['nombreMunicipio'];
+                $Res[]=$temp;
+                $dat->MoveNext();
+            }
             $VerMunicipios = $Visual->Select($Res, 'Municipio', '','','','','scFormObjectOddMult');
 			$encabezado=array('Indicador y municipio');
 			$Datos[]=array($VerMunicipios);

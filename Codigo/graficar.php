@@ -21,8 +21,7 @@ class graficar {
         $Res = $con->TablaDatos();
         return $Res;
     }
-//==================================================================================
-//Funcion para llamar años o otros datos
+
         public function ValoresCategorias() {
         $sql = 'SELECT 
         `categoria`.`Nombre`
@@ -58,8 +57,6 @@ class graficar {
         return $Res;
     }    
     
-//==================================================================================
-//==================================================================================
 
     private function FormatearCategorias($Datos) {
         $Total = array();

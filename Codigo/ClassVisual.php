@@ -41,14 +41,12 @@ class Visual {
 
     private function CombinarColumnas($Datos, $ColumnasCombinar) {
 
-//        error_reporting(0);
         $tabla = '';
         $Duplicado = '';
         $DatosFinales = '';
         $Nombre = array();
         $Cant = array();
         $Anterior = '';
-        ////////////////////////////////////////////////////////////////////////
         if ($ColumnasCombinar !== NULL && $ColumnasCombinar !== '') {
             foreach ($Datos as $Temp1) {
                 $Temp2 = '';
@@ -61,7 +59,6 @@ class Visual {
                 $Nombre[] = $Temp2;
             }
         }
-        ////////////////////////////////////////////////////////////////////////
         for ($j = 0; $j < count($Datos); $j++) {
             $Temp3 = $Datos[$j];
             $tabla.='<tr>';
@@ -90,7 +87,6 @@ class Visual {
             }
             $tabla.='</tr>';
         }
-        ////////////////////////////////////////////////////////////////////////
         $tabla.="</table>";
         return $tabla;
     }

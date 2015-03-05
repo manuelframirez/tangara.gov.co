@@ -1,17 +1,23 @@
 <?php
-
 	include_once('../BaseDatos/conexion.php');
-	$con = new conexion();
+	include_once Config::$home_bin.Config::$ds.'db'.Config::$ds.'active_table.php';
+	$con = App::$base;
 	$sql='';
 	$Tipo=$_POST['Tipo'];
 	if($Tipo=='Cauca')
 	{
-		$sql='SELECT `Acerca_cauca` FROM `contenido` where  `id_contenido`=1';
+		$sql='SELECT `Acerca_cauca` as "acerca" FROM `contenido` where  `id_contenido`=1';
 	}
 	else
 	{
-		$sql='SELECT `Acerca_Tangara` FROM `contenido` where `id_contenido`=1';
+		$sql='SELECT `Acerca_Tangara` as "acerca" FROM `contenido` where `id_contenido`=1';
 	}
-	$Datos = $con->TablaDatos($sql);
-	echo $Datos[0][0];
+	$res = $con->dosql($sql, array());
+    $Acerca='';
+    if (!$res -> EOF) 
+    {
+		$Acerca=$res->fields;
+		$res->MoveNext();
+	}
+	echo utf8_encode($Acerca['acerca']);
 ?>

@@ -52,7 +52,6 @@ function Tematica(id)
 }
 function Filtrar(id)
 {
-    console.log(id);
     Dimension(id);
     Tematica(id);
     Indicadores(id);
