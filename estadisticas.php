@@ -6,20 +6,9 @@
         <title>Estad&iacute;sticas</title>
         <meta name="viewport" content="width=device-width,initial-scale=1,maximun-scale=1"/>
         <link rel="stylesheet" type="text/css" href="css/reset.css">
-        <!--[if lt IE 9]>
-  <script src="js/html5.js"></script>
-<![endif]-->
-        <!--[if (gt IE 8) | (IEMobile)]><!-->
         <link rel="stylesheet" href="css/unsemantic-grid-responsive.css" />
-
-        <!--<![endif]-->
-        <!--[if (lt IE 9) & (!IEMobile)]>
-          <link rel="stylesheet" href="css/ie.css" />
-        <![endif]-->
         <link rel="stylesheet" type="text/css" href="css/style.css">
-
         <link rel="shortcut icon" href="images/favicon.ico">
-
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
@@ -28,7 +17,6 @@
         <script src="js/jquery-1.11.0.min.js"></script>
         <script src="js/jquery-migrate-1.2.1.min.js"></script>
         <script src="js/Selects.js"></script>
-
         <script src="js/jquery.min.js"></script>
         <link rel="stylesheet" href="css/jquery-ui.css">
         <script src="js/jquery-ui.js"></script>
@@ -71,100 +59,9 @@
                         <div id ="menu-categorias" class="grid-100 mobile-grid-100 grid-parent hide-on-mobile">
                             <h2>Categor&iacute;as</h2>	
                             <?php
-
-                            class patients_show_list {
-
-                                private $html = '';
-                                private $dimensions;
-
-                                function menu() {
-
-                                    $dimensiones_html = "";
-
-                                    // Conectando, seleccionando la base de datos
-                                    $link = mysql_connect('localhost', 'root', '') or die('No se pudo conectar: ' . mysql_error());
-                                    mysql_select_db('gobernacion') or die('No se pudo seleccionar la base de datos');
-                                    $query = 'SELECT * FROM dimension ORDER BY `Descripcion`';
-                                    $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
-
-                                    $dimensiones_html .= '<ul class="grid-100 grid-parent">';
-                                    while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-                                        $tematica_html = "";
-
-                                        $li_a_dimension = new li_a($row["id_dimension"], $row["Descripcion"], '', '#');
-                                        $query_tematica = 'SELECT * FROM tematica WHERE fk_Dimension = ' . $row["id_dimension"] . ' ORDER BY `Descripcion`';
-                                        $result_tematica = mysql_query($query_tematica) or die('Consulta fallida: ' . mysql_error());
-
-                                        $tematica_html .= '<ul class="submenu">';
-
-                                        while ($row_tematica = mysql_fetch_array($result_tematica, MYSQL_ASSOC)) {
-                                            $indicadores_html = "";
-                                            $li_a_tematica = new li_a($row_tematica["id_tematica"], $row_tematica["Descripcion"], '', '#', 'desp');
-                                            /* indicadores */
-                                            $query_indicadores = 'SELECT * FROM indicadores WHERE fk_tematica = ' . $row_tematica["id_tematica"] . ' ORDER BY `Nombre`';
-                                            $result_indicadores = mysql_query($query_indicadores) or die('Consulta fallida: ' . mysql_error());
-                                            $indicadores_html .= '<ul class="submenu2">';
-                                            while ($row_indicadores = mysql_fetch_array($result_indicadores, MYSQL_ASSOC)) {
-                                                $li_a_indicadores = new li_a($row_indicadores["id_indicadores"], $row_indicadores["Nombre"], 'javascript:Filtrar(' . $row_indicadores["id_indicadores"] . ')', '');
-                                                $indicadores_html .= $li_a_indicadores->generate();
-                                            }
-                                            $indicadores_html .= "\n</ul>\n";
-                                            $li_a_tematica->aditional_code = $indicadores_html;
-                                            $tematica_html .= $li_a_tematica->generate();
-                                        }
-                                        $tematica_html .= "\n</ul>\n";
-                                        $li_a_dimension->aditional_code = $tematica_html;
-                                        $dimensiones_html .= $li_a_dimension->generate();
-                                    }
-                                    $dimensiones_html .= "\n</ul>\n";
-                                    return $dimensiones_html;
-                                }
-
-                            }
-
-                            class li_a {
-
-                                private $html = '';
-                                private $id;
-                                private $title;
-                                private $link;
-                                private $aditional_code;
-                                private $ClassLI;
-
-                                public function __construct($id, $title, $link, $aditional_code, $classLI = '') {
-                                    $this->id = $id;
-                                    $this->title = $title;
-                                    $this->link = $link;
-                                    $this->aditional_code = $aditional_code;
-                                    $this->ClassLI = $classLI;
-                                }
-
-                                public function generate() {
-                                    if ($this->ClassLI != '') {
-                                        $this->ClassLI = ' class="' . $this->ClassLI . '"';
-                                    }
-                                    $this->html .= "
-                            <li$this->ClassLI>
-                            <a id=\"{$this->id}\" href=\"{$this->link}\">{$this->title}</a>
-
-                            {$this->aditional_code}
-                            </li>";
-                                    return $this->html;
-                                }
-
-                                public function __set($var, $value) {
-                                    $temp = strtolower($var);
-                                    if (property_exists('li_a', $temp)) {
-                                        $this->$temp = $value;
-                                    } else {
-                                        echo $var . " does not exist.";
-                                    }
-                                }
-
-                            }
-
-                            $patients_show_list = new patients_show_list();
-                            echo utf8_encode($patients_show_list->menu());
+                                include_once './Codigo/menu.php';
+                                $Menu = new ListadoMenu();
+                                echo $Menu->menu();
                             ?>
                         </div>
                         <!--end menu categorias -->		

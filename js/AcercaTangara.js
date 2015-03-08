@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-	$.ajax
+    $.ajax
     ({
         type: "POST",
         url: "./Codigo/Ajax_Contenido.php",
