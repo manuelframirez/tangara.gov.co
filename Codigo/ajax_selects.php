@@ -10,13 +10,13 @@ switch ($Opc)
 {
     case 'Tematica': $Select=$Res->VerTematicas($id); break;
     case 'Indicadores':$Select=$Res->VerIndicadores($id); break;
-	case 'Dimension':$Select=$Res->VerDimensiones();break;
-    	case 'Municipios':
-		if(is_null($id) || $id=='')
-		{
-			$id='-1';
-		}
-		$Select=$Res->VerMunicipios($id);
+    case 'Dimension':$Select=$Res->VerDimensiones();break;
+    case 'Municipios':
+        if(is_null($id) || $id=='')
+	{
+            $id='-1';
+	}
+	$Select=$Res->VerMunicipios($id);
 	break;
 }
 echo $Select;

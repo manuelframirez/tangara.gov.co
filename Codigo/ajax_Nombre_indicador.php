@@ -1,11 +1,16 @@
 <?php
 include_once('../BaseDatos/conexion.php');
-$con = new conexion();
+include_once Config::$home_bin . Config::$ds . 'db' . Config::$ds . 'active_table.php';
+$con = App::$base;
+
 $id=$_POST['id'];
 $id_municipio=$_POST['id_municipio'];
-$sql="SELECT `Nombre` FROM `indicadores` WHERE `indicadores`.`id_indicadores` = '$id'";
-$Indicador=$con->TablaDatos($sql);
-$sql="SELECT `municipio`.`nombreMunicipio` FROM `municipio` WHERE `municipio`.`idmunicipio` = '".$id_municipio."'";
-$Municipio=$con->TablaDatos($sql);
-echo $Indicador[0][0].';Municipio de '.$Municipio[0][0];
+$i = atable::Make('indicadores');
+$i->load("`id_indicadores` = '$id'");
+$indicador= $i->nombre;
+$M = atable::Make('municipio');
+$M->load("`idmunicipio` = '$id_municipio'");
+$Municipio= $M->nombremunicipio;
+
+echo json_encode(array($indicador,'Municipio de '.$Municipio));
 ?>

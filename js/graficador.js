@@ -24,23 +24,27 @@ function Graficos(Datos)
 {
     $(document).ready(function()
     {
-		Highcharts.setOptions({
-		lang: {
-				numericSymbols: null //otherwise by default ['k', 'M', 'G', 'T', 'P', 'E']
-			}
-		});
+	Highcharts.setOptions
+        ({
+            lang: 
+            {
+                numericSymbols: null //otherwise by default ['k', 'M', 'G', 'T', 'P', 'E']
+            }
+        });
         chart = new Highcharts.Chart
         ({
             chart:
             {
                 renderTo: Contenedor,
                 type: TipoGrafico,
-                marginRight: 130,
-                marginBottom: 25                
+                marginBottom: 20              
             },
             title:
             {
                 text: Texto, x: -20
+            },
+            credits: {
+                enabled: false
             },
             subtitle:
             {
@@ -69,7 +73,7 @@ function Graficos(Datos)
                 {
                     borderWidth: 0,
                     pointWidth: 10,
-                    lineWidth: 1
+                    lineWidth: 3
                 }
             },
             tooltip:
@@ -77,21 +81,24 @@ function Graficos(Datos)
                  formatter: function()
                 {
                     return'<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y + ' ' + TextoPuntos;
-                }},
-				legend:
-				{
-
-					verticalAlign: 'top',
-					x: 30,
-					y: 80,  
-					borderWidth: 2
-				},
-				series: Datos,
+                }
+            },
+            legend:
+            {
+                title: 
+                {
+                    text: 'Variables'
+                },
+                id: "null",
+                align: 'left',
+                verticalAlign: 'middle',
+                layout: 'vertical'
+            },
+            series: Datos,
             exporting: 
             {
                 sourceWidth: 1600,
                 sourceHeight: 8,
-                // scale: 2 (default)
                 chartOptions: 
                 {
                     subtitle: null
@@ -100,8 +107,6 @@ function Graficos(Datos)
         });
     });
 }
-
-
 function GraficarDatos(ElContenedor, ElTexto, Lossubtitulos, ElTextoGrafico, ElTextoEje, ElTextoPuntos, LosTipoGrafico, LasCategorias, Datos)
 {
     Contenedor = ElContenedor;

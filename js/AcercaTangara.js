@@ -6,11 +6,11 @@ $(document).ready(function()
         url: "./Codigo/Ajax_Contenido.php",
         data:
         {
-            Tipo: 'Tangara'
+            Contenido: 'acerca de tángara'
         },
         success: function(value)
         {
-			$('#texto').html(value);
+            $('#texto').html(value);
         }
     });
 });

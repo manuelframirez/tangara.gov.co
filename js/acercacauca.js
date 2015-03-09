@@ -1,16 +1,16 @@
-$(document).ready(function()
+$(document).ready(function ()
 {
-	$.ajax
+    $.ajax
     ({
         type: "POST",
         url: "./Codigo/Ajax_Contenido.php",
         data:
         {
-            Tipo: 'Cauca'
+            Contenido: 'acerca del cauca'
         },
-        success: function(value)
+        success: function (value)
         {
-			$('#texto').html(value);
+            $('#texto').html(value);
         }
     });
 });

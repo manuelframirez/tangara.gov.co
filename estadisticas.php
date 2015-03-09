@@ -12,14 +12,13 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-        <script type="text/javascript" src="js/graficador.js"></script>
-        <script type="text/javascript" src="js/graficar.js"></script>
         <script src="js/jquery-1.11.0.min.js"></script>
         <script src="js/jquery-migrate-1.2.1.min.js"></script>
-        <script src="js/Selects.js"></script>
         <script src="js/jquery.min.js"></script>
         <link rel="stylesheet" href="css/jquery-ui.css">
         <script src="js/jquery-ui.js"></script>
+        <script type="text/javascript" src="./js/graficar.js"></script>
+        <script src="js/Selects.js"></script>
         <script src="js/menu.js"></script>
     </head>
     <body>

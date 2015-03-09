@@ -9,7 +9,7 @@
         $Res=array();
         foreach($resultado as $temp)
         {
-            $Res[]=$temp[0];
+            $Res[]=$temp['Nombre'];
         }
         echo json_encode($Res);
 ?>

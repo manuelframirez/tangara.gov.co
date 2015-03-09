@@ -49,31 +49,31 @@ $(function ()
     $('#container').highcharts('Map',
             {
                 title:
-                        {
-                            text: "<strong>Municipios del Cauca<strong>"
-                        },
+                {
+                    text: "<strong>Municipios del Cauca<strong>"
+                },
                 legend:
-                        {
-                            id: "null",
-                            align: 'left',
-                            verticalAlign: 'middle',
-                            layout: 'vertical'
-                        },
+                {
+                    id: "null",
+                    align: 'left',
+                    verticalAlign: 'middle',
+                    layout: 'vertical'
+                },
                 formatter: function ()
                 {
                     return "nombre";
                 },
                 mapNavigation:
-                        {
-                            enabled: false
-                        },
+                {
+                    enabled: false
+                },
                 tooltip:
-                        {
-                            pointFormat: '<strong>{point.name}:<br/></strong>{point.descripcion}',
-                        },
+                {
+                    pointFormat: '<strong>{point.name}:<br/></strong>{point.descripcion}',
+                },
                 series:
-                        [{
-                                name: "Norte",
+                [{
+                    name: "Norte",
                                 type: "map",
                                 color: "#B0D31F",
                                 data:

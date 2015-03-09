@@ -56,7 +56,7 @@
             <!--main menu -->
 
             <div id="content-wrap" class="wrapper">
-                <div id="content" class="grid-container">
+                <div id="content" class="">
                      <!--Graficos-->
                     <?php
                     echo '<input type="hidden" id="id_select_indicador" name="id_indicador" value="' . $_GET['id_indicador'] . '">' . "\n";
@@ -71,17 +71,10 @@
                     </p>
                     <script>
                         window.onload = GraficarlosDatos();
-                    </script>           
-                    <div id="container_graficos" style="min-width: 400px; height: 700px; margin: 0 auto"></div>
-
-
-
-
+                    </script> 
+                    <div id="container_graficos" style="min-width: 100%; height: 100%; padding: 1, 1, 1, 1 "></div>
                 </div>
             </div>
-            <!--End content -->	
-
-
             <div id="menu-footer-wrap" class="wrapper">
                 <div id="footer-menu-bar" class="grid-container grid-parent">
                     <nav role="navigation" id="footer-menu" class="grid-100 mobile-grid-100 grid-parent">

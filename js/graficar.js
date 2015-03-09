@@ -14,8 +14,7 @@ function year(id_indicador,id_municipio)
         },
         success: function(datos)
         {
-            Year=JSON.parse(datos);//["2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012" ];//datos;
-            
+            Year=JSON.parse(datos);
         }
     });
 }
@@ -32,7 +31,7 @@ function NombreIndicador(id_indicador,id_municipio)
         },
         success: function(Nombre)
         {
-            $Valores=Nombre.split(";");
+            $Valores=JSON.parse(Nombre)
             Nombreid = $Valores[0];
             Nombre_Municipio = $Valores[1];
         }
